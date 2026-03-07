@@ -59,5 +59,8 @@ User.methods.comparePassword = function(candidatePassword, cb) {
         cb(null, isMatch);
     });
 };
-     
+     User.methods.getAllPermissions = async function() {
+  await this.populate('roles');
+  return this.roles.flatMap(r => r.permissions);
+};
 module.exports = mongoose.model('User', User);

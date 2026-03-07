@@ -26,7 +26,7 @@ app.use((req, res, next) => {
   next(); 
 });
 app.use(helmet());           // security headers
-app.use(mongoSanitize());    // NoSQL injection rokta hai
+// app.use(mongoSanitize({ allowDots: true }));
 app.use(cors({ 
   origin: process.env.CLIENT_URL || 'http://localhost:3000',
   credentials: true 
